@@ -4,6 +4,7 @@
   padding: 1em;
 
   background-color: gray;
+  border-radius: 0.5em;
 }
 
 .registrationForm > label {
@@ -32,10 +33,12 @@
   color: white;
   background-color: red;
   font-size: smaller;
+  border-radius: 0.25em;
 }
 
 .registrationForm__success {
   color: white;
   background-color: green;
   font-size: smaller;
+  border-radius: 0.25em;
 }
