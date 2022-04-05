@@ -9,7 +9,7 @@ export default function RegistrationForm() {
   const [password, setPassword] = React.useState('');
   const [confirmPassword, setConfirmPassword] = React.useState('');
 
-  // Inicializar el estado de los errores y éxito
+  // Inicializar el estado de error y éxito
   const [error, setError] = React.useState('');
   const [success, setSuccess] = React.useState(false);
 
