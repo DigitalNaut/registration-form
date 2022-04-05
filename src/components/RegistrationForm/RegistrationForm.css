@@ -1,0 +1,41 @@
+.registrationForm {
+  min-width: 12em;
+  margin: 1em;
+  padding: 1em;
+
+  background-color: gray;
+}
+
+.registrationForm > label {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  align-items: flex-start;
+
+  font-size: smaller;
+}
+
+.registrationForm > label > input {
+  width: 100%;
+}
+
+.registrationForm__submit {
+  width: 100%;
+  margin-top: 1em;
+  padding: 0.5em;
+
+  cursor: pointer;
+}
+
+.registrationForm__error {
+  color: white;
+  background-color: red;
+  font-size: smaller;
+}
+
+.registrationForm__success {
+  color: white;
+  background-color: green;
+  font-size: smaller;
+}
