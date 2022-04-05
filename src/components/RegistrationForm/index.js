@@ -5,7 +5,7 @@ import './RegistrationForm.css'
 export default function RegistrationForm() {
   // Inicializar el estado del formulario en blanco
 
-  // Inicializar el estado de los errores y éxito
+  // Inicializar el estado de error y éxito
 
   const handleSubmit = (event) => {
     // Prevenir el comportamiento predeterminado del formulario
