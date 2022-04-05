@@ -5,10 +5,10 @@ import RegistrationForm from './components/RegistrationForm';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h3>Registration Form</h3>
+      <section className="App-content">
+        <h3 className="App-header">Registration Form</h3>
         <RegistrationForm />
-      </header>
+      </section>
     </div>
   );
 }
