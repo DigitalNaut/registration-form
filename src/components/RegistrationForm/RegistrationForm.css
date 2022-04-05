@@ -1,26 +1,36 @@
+/* Estilos del formulario base */
 .registrationForm {
-  min-width: 12em;
+  min-width: 24em;
   margin: 1em;
-  padding: 1em;
+  padding: 2em;
 
-  background-color: gray;
+  background-color: #970990;
   border-radius: 0.5em;
+
+  font-size: normal;
 }
 
+/* Estilos de las etiquetas */
 .registrationForm > label {
   display: flex;
   flex-direction: column;
-
+  
   width: 100%;
   align-items: flex-start;
-
-  font-size: smaller;
 }
 
+/* Estilos de los campos de texto */
 .registrationForm > label > input {
   width: 100%;
+  margin: 0.25em 0;
+  padding: 0.1em;
+
+  font-size: large;
+
+  border-radius: 0.25em;
 }
 
+/* Estilos de los botones */
 .registrationForm__submit {
   width: 100%;
   margin-top: 1em;
@@ -29,16 +39,18 @@
   cursor: pointer;
 }
 
+/* Estilo del mensaje de error */
 .registrationForm__error {
   color: white;
   background-color: red;
-  font-size: smaller;
+  font-size: medium;
   border-radius: 0.25em;
 }
 
+/* Estilo del mensaje de éxito */
 .registrationForm__success {
   color: white;
   background-color: green;
-  font-size: smaller;
+  font-size: medium;
   border-radius: 0.25em;
 }

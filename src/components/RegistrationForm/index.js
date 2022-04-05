@@ -3,45 +3,55 @@ import React from 'react'
 import './RegistrationForm.css'
 
 export default function RegistrationForm() {
-
+  // Inicializar el estado del formulario en blanco
   const [name, setName] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [confirmPassword, setConfirmPassword] = React.useState('');
 
+  // Inicializar el estado de los errores y éxito
   const [error, setError] = React.useState('');
   const [success, setSuccess] = React.useState(false);
 
   const handleSubmit = (event) => {
+    // Prevenir el comportamiento predeterminado del formulario 
     event.preventDefault();
 
+    // Resetear el estado de error
     setError('');
 
+    // Validar el formulario
     if (name.trim() === '' || email.trim() === '' || password.trim() === '' || confirmPassword.trim() === '') {
       setError('Please fill in all fields');
       return;
     }
-
+    
+    // Asegurarse que las contraseñas coincidan
     if (password.trim() !== confirmPassword.trim()) {
       setError('Passwords do not match');
       return;
     }
 
-    console.log('Successfully submitted');
-    console.log(`name: ${name}`);
-    console.log(`email: ${email}`);
-    console.log(`password: ${password}`);
-    console.log(`confirmPassword: ${confirmPassword}`);
+    // Enviar el formulario
+    // ...
 
+    console.log(`Data submitted:
+    name: ${name}
+    email: ${email}
+    password: ${password}
+    confirmPassword: ${confirmPassword}`);
+    
+    // Mostrar el mensaje de éxito
     setSuccess(true);
   }
 
+  // Mostrar el mensaje de éxito si el estado success es true
   if (success)
     return <div className="registrationForm registrationForm__success">Registered successfully</div>
 
+  // Mostrar el formulario
   return (
-    <form className='registrationForm' onSubmit={handleSubmit}
-    >
+    <form className='registrationForm' onSubmit={handleSubmit}>
       {error && <div className='registrationForm__error'>{error}</div>}
       <label>
         Name:
