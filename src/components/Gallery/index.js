@@ -15,7 +15,7 @@ export default function Gallery() {
       method: 'GET',
     }
 
-    // Obtener los datos con Axios
+    // Obtener los datos con fetch
 
     // fetch('https://60f2262e6d44f3001778853a.mockapi.io/api/registro', requestOptions)
     //   .then(async response => {
