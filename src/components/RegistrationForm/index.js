@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react'
 
 import './RegistrationForm.css'
@@ -38,30 +39,40 @@ export default function RegistrationForm() {
     password: ${password}
     confirmPassword: ${confirmPassword}`);
 
-    // Enviar el formulario
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name,
-        email,
-        password
-      })
-    }
+    // Enviar el formulario con fetch
 
-    fetch('https://60f2262e6d44f3001778853a.mockapi.io/api/registro', requestOptions)
-      .then(async response => {
-        const isJson = response.headers.get('content-type')?.includes('application/json');
-        const data = isJson && await response.json();
+    // const requestOptions = {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({
+    //     name,
+    //     email,
+    //     password
+    //   })
+    // }
 
-        // Checar por respuesta del usuario
-        if (!response.ok) {
-          const error = { message: data, status: response.status };
-          return Promise.reject(error);
-        }
+    // fetch('https://60f2262e6d44f3001778853a.mockapi.io/api/registro', requestOptions)
+    //   .then(async response => {
+    //     const isJson = response.headers.get('content-type')?.includes('application/json');
+    //     const data = isJson && await response.json();
 
-        setSuccess(true)
-      })
+    //     // Checar por respuesta del usuario
+    //     if (!response.ok) {
+    //       const error = { message: data, status: response.status };
+    //       return Promise.reject(error);
+    //     }
+
+    //     setSuccess(true)
+    //   })
+    //   .catch(error => { setError(`Error(${error.status}): ${error.message}`) });
+
+    // Enviar el formulario con Axios
+
+    axios.post('https://60f2262e6d44f3001778853a.mockapi.io/api/registro', {
+      name,
+      email,
+      password
+    }).then(response => setSuccess(true))
       .catch(error => { setError(`Error(${error.status}): ${error.message}`) });
   }
 

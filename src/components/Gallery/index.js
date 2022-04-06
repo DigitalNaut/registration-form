@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import axios from 'axios';
+
 import Profile from '../Profile';
 
 import './Gallery.css';
@@ -13,20 +15,28 @@ export default function Gallery() {
       method: 'GET',
     }
 
-    fetch('https://60f2262e6d44f3001778853a.mockapi.io/api/registro', requestOptions)
-      .then(async response => {
-        const isJson = response.headers.get('content-type')?.includes('application/json');
-        const data = isJson && await response.json();
+    // Obtener los datos con Axios
 
-        // Checar por respuesta del usuario
-        if (!response.ok) {
-          const error = { message: data, status: response.status };
-          return Promise.reject(error);
-        }
+    // fetch('https://60f2262e6d44f3001778853a.mockapi.io/api/registro', requestOptions)
+    //   .then(async response => {
+    //     const isJson = response.headers.get('content-type')?.includes('application/json');
+    //     const data = isJson && await response.json();
 
-        setUsers(data);
-      })
-      .catch(error => { setError(`Error cargando galería (${error.status}): ${error.message}`) });
+    //     // Checar por respuesta del usuario
+    //     if (!response.ok) {
+    //       const error = { message: data, status: response.status };
+    //       return Promise.reject(error);
+    //     }
+
+    //     setUsers(data);
+    //   })
+    //   .catch(error => { setError(`Error cargando galería (${error.status}): ${error.message}`) });
+
+
+    // Obtener los datos con Axios
+    axios.get('https://60f2262e6d44f3001778853a.mockapi.io/api/registro')
+      .then(response => setUsers(response.data))
+      .catch(error => { setError(`Error(${error.status}): ${error.message}`) })
   }, [])
 
 
