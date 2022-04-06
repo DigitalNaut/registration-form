@@ -7,7 +7,6 @@ export default function Gallery() {
   const [users, setUsers] = useState([]);
 
   const [error, setError] = React.useState('');
-  const [success, setSuccess] = React.useState(false);
 
   useEffect(() => {
     const requestOptions = {
@@ -27,12 +26,13 @@ export default function Gallery() {
 
         setUsers(data);
       })
-      .catch(error => { setError(`Error(${error.status}): ${error.message}`) });
+      .catch(error => { setError(`Error cargando galería (${error.status}): ${error.message}`) });
   }, [])
 
 
   return (
     <div className='galleryContainer'>
+      {error && <div className='galleryError'>{error}</div>}
       {users && users.map(user => <Profile key={user.id} name={user.name} email={user.email} />)}
     </div>
   )

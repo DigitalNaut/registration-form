@@ -12,3 +12,10 @@
 
   border-radius: 0.5em;
 }
+
+.galleryError {
+  color: white;
+  background-color: red;
+  font-size: medium;
+  border-radius: 0.25em;
+}
