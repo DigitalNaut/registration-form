@@ -25,24 +25,44 @@ export default function RegistrationForm() {
       setError('Please fill in all fields');
       return;
     }
-    
+
     // Asegurarse que las contraseñas coincidan
     if (password.trim() !== confirmPassword.trim()) {
       setError('Passwords do not match');
       return;
     }
 
-    // Enviar el formulario
-    // ...
-
     console.log(`Data submitted:
     name: ${name}
     email: ${email}
     password: ${password}
     confirmPassword: ${confirmPassword}`);
-    
-    // Mostrar el mensaje de éxito
-    setSuccess(true);
+
+    // Enviar el formulario
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name,
+        email,
+        password
+      })
+    }
+
+    fetch('https://60f2262e6d44f3001778853a.mockapi.io/api/registro', requestOptions)
+      .then(async response => {
+        const isJson = response.headers.get('content-type')?.includes('application/json');
+        const data = isJson && await response.json();
+
+        // Checar por respuesta del usuario
+        if (!response.ok) {
+          const error = { message: data, status: response.status };
+          return Promise.reject(error);
+        }
+
+        setSuccess(true)
+      })
+      .catch(error => { setError(`Error(${error.status}): ${error.message}`) });
   }
 
   // Mostrar el mensaje de éxito si el estado success es true

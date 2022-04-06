@@ -1,0 +1,16 @@
+.profileContainer {
+  display: flex;
+  flex-direction: column;
+
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 1em;
+  padding: 1em;
+  max-width: 100%;
+
+  background-color: #bd87ba;
+  color: white;
+
+  border-radius: 0.5em;
+}
