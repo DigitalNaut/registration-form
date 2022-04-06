@@ -33,7 +33,8 @@ export default function Gallery() {
   return (
     <div className='galleryContainer'>
       {error && <div className='galleryError'>{error}</div>}
-      {users && users.map(user => <Profile key={user.id} name={user.name} email={user.email} />)}
+      {!users.length && <p>Sin usuarios</p>}
+      {users.map(user => <Profile key={user.id} name={user.name} email={user.email} />)}
     </div>
   )
 }
