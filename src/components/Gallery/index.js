@@ -11,9 +11,6 @@ export default function Gallery() {
   const [error, setError] = React.useState('');
 
   useEffect(() => {
-    const requestOptions = {
-      method: 'GET',
-    }
 
     // Obtener los datos con fetch
 
