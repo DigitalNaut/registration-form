@@ -11,7 +11,11 @@ export default function Gallery() {
   const [error, setError] = React.useState('');
 
   useEffect(() => {
-    // Obtener los datos con fetch
+    const requestOptions = {
+      method: 'GET',
+    }
+
+    // Obtener los datos con Axios
 
     // fetch('https://60f2262e6d44f3001778853a.mockapi.io/api/registro', requestOptions)
     //   .then(async response => {
