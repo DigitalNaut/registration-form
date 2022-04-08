@@ -11,6 +11,7 @@ export default function Gallery() {
   const [error, setError] = React.useState("");
 
   useEffect(() => {
+    //#region
     // Obtener los datos con fetch
 
     // fetch('https://60f2262e6d44f3001778853a.mockapi.io/api/registro', requestOptions)
@@ -27,11 +28,15 @@ export default function Gallery() {
     //     setUsers(data);
     //   })
     //   .catch(error => { setError(`Error cargando galería (${error.status}): ${error.message}`) });
+    //#endregion
 
     // Obtener los datos con Axios
     axios
-      .get("https://60f2262e6d44f3001778853a.mockapi.io/api/registro")
-      .then((response) => setUsers(response.data))
+      .get("https://my-money-5.herokuapp.com/registers/")
+      .then((response) => {
+        console.log(response);
+        setUsers(response.data);
+      })
       .catch((error) => {
         setError(`Error(${error.status}): ${error.message}`);
       });
