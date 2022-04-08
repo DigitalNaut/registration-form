@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from 'react'
+import axios from 'axios';
 
-import Profile from "../Profile";
+import Profile from '../Profile';
 
-import "./Gallery.css";
+import './Gallery.css';
 
 export default function Gallery() {
   const [users, setUsers] = useState([]);
 
-  const [error, setError] = React.useState("");
+  const [error, setError] = React.useState('');
 
   useEffect(() => {
     //#region
@@ -30,22 +30,24 @@ export default function Gallery() {
     //   .catch(error => { setError(`Error cargando galería (${error.status}): ${error.message}`) });
     //#endregion
 
+
     // Obtener los datos con Axios
     axios
-      .get("https://my-money-5.herokuapp.com/registers/")
-      .then((response) => setUsers(response.data.data))
+      .get("https://60f2262e6d44f3001778853a.mockapi.io/api/registro")
+      .then((response) => setUsers(response.data))
       .catch((error) => {
         setError(`Error(${error.status}): ${error.message}`);
       });
   }, []);
 
+
   return (
-    <div className="galleryContainer">
-      {error && <div className="galleryError">{error}</div>}
+    <div className='galleryContainer'>
+      {error && <div className='galleryError'>{error}</div>}
       {!users.length && <p>Sin usuarios</p>}
       {users.map((user) => (
-        <Profile key={user.id} name={user.nombre} email={user.email} />
+        <Profile key={user.id} name={user.name} email={user.email} />
       ))}
     </div>
-  );
+  )
 }
