@@ -9,7 +9,7 @@ function App() {
       <section className="App-content">
         <h3 className="App-header">Registration Form</h3>
         <RegistrationForm />
-        <h3 className="App-header">Gallery</h3>
+        <h3 className="App-header">Hello world!</h3>
         <Gallery />
       </section>
     </div>
