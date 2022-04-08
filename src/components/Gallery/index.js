@@ -33,7 +33,7 @@ export default function Gallery() {
 
     // Obtener los datos con Axios
     axios
-      .get("https://60f2262e6d44f3001778853a.mockapi.io/api/registro")
+      .get("https://mymoney15.herokuapp.com/api/v1/users")
       .then((response) => setUsers(response.data))
       .catch((error) => {
         setError(`Error(${error.status}): ${error.message}`);
