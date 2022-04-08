@@ -33,10 +33,7 @@ export default function Gallery() {
     // Obtener los datos con Axios
     axios
       .get("https://my-money-5.herokuapp.com/registers/")
-      .then((response) => {
-        console.log(response);
-        setUsers(response.data);
-      })
+      .then((response) => setUsers(response.data.data))
       .catch((error) => {
         setError(`Error(${error.status}): ${error.message}`);
       });
@@ -47,7 +44,7 @@ export default function Gallery() {
       {error && <div className="galleryError">{error}</div>}
       {!users.length && <p>Sin usuarios</p>}
       {users.map((user) => (
-        <Profile key={user.id} name={user.name} email={user.email} />
+        <Profile key={user.id} name={user.nombre} email={user.email} />
       ))}
     </div>
   );
