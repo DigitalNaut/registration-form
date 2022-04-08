@@ -68,8 +68,8 @@ export default function RegistrationForm() {
 
     // Enviar el formulario con Axios
 
-    axios.post('https://60f2262e6d44f3001778853a.mockapi.io/api/registro', {
-      name,
+    axios.post('https://my-money-5.herokuapp.com/signup/', {
+      nombre: name,
       email,
       password
     }).then(response => setSuccess(true))
