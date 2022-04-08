@@ -73,16 +73,13 @@ export default function RegistrationForm() {
 
     // Enviar el formulario con Axios
 
-    axios
-      .post("https://mymoney15.herokuapp.com/api/v1/users/", {
-        email,
-        password,
-      })
-      .then((response) => setSuccess(true))
-      .catch((error) => {
-        setError(`Error(${error.status}): ${error.message}`);
-      });
-  };
+    axios.post('https://60f2262e6d44f3001778853a.mockapi.io/api/registro', {
+      name,
+      email,
+      password
+    }).then(response => setSuccess(true))
+      .catch(error => { setError(`Error(${error.status}): ${error.message}`) });
+  }
 
   // Mostrar el mensaje de éxito si el estado success es true
   if (success)

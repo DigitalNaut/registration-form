@@ -11,7 +11,7 @@ export default function Gallery() {
   const [error, setError] = React.useState('');
 
   useEffect(() => {
-    //#region
+
     // Obtener los datos con fetch
 
     // fetch('https://60f2262e6d44f3001778853a.mockapi.io/api/registro', requestOptions)
@@ -32,22 +32,17 @@ export default function Gallery() {
 
 
     // Obtener los datos con Axios
-    axios
-      .get("https://mymoney15.herokuapp.com/api/v1/users")
-      .then((response) => setUsers(response.data))
-      .catch((error) => {
-        setError(`Error(${error.status}): ${error.message}`);
-      });
-  }, []);
+    axios.get('https://60f2262e6d44f3001778853a.mockapi.io/api/registro')
+      .then(response => setUsers(response.data))
+      .catch(error => { setError(`Error(${error.status}): ${error.message}`) })
+  }, [])
 
 
   return (
     <div className='galleryContainer'>
       {error && <div className='galleryError'>{error}</div>}
       {!users.length && <p>Sin usuarios</p>}
-      {users.map((user) => (
-        <Profile key={user.id} name={user.name} email={user.email} />
-      ))}
+      {users.map(user => <Profile key={user.id} name={user.name} email={user.email} />)}
     </div>
   )
 }
